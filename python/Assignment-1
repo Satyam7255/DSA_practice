@@ -1,0 +1,18 @@
+import pandas as pd
+df1 = pd.read_csv('http://bit.ly/imdbratings')
+df1.head()
+
+df1.shape
+
+df1.dtypes
+
+df1_sr = df1[df1['star_rating']>8.5]
+df1_sr.head()
+
+df1['genre'].value_counts()
+
+df1.groupby('genre')['star_rating' , 'duration'].mean()
+
+df1[(df1['genre'].isin(['Crime' , 'Comedy' , 'Adventure'])) & (df1['star_rating'] > 8) & (df1['duration'] < 150)]
+
+df1[df1['actors_list'].str.contains('Tim Robbins')]
